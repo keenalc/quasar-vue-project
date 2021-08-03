@@ -11,7 +11,6 @@ npm install
 ```bash
 quasar dev
 ```
-```
 
 ### Build the app for production
 ```bash
