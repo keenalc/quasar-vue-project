@@ -1,32 +1,32 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title> Keenal </q-toolbar-title>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
-      <q-list>
-        <q-item-label header class="text-grey-8">
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
+    <q-drawer show-if-above bordered class="bg-primary">
+      <div class="q-pa-lg">
+        <img class="q-ml-md" alt="Logo" src="~assets/logo.png" />
+        <div class="q-ma-md" style="color: grey">
+          Trusted way of banking for 3,000+ SMEs and startups in Singapore
+        </div>
+        <q-list
+          v-for="link in sideBarItems"
           :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+          class="q-mb-md"
+          :class="{
+            'text-positive': routeName === link.routeName,
+            'text-white': routeName !== link.routeName,
+          }"
+          @click="navigateTo(link)"
+        >
+          <q-item>
+            <q-item-section v-if="link.icon" avatar>
+              <q-icon :name="link.icon" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>{{ link.title }}</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
     </q-drawer>
 
     <q-page-container>
@@ -36,72 +36,32 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink.vue";
+import sideBarItems from "src/layouts/SideBarItems.json";
+export default {
+  name: "Layout",
 
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
-
-import { defineComponent, ref } from "vue";
-
-export default defineComponent({
-  name: "MainLayout",
-
-  components: {
-    EssentialLink,
-  },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
+  data() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      sideBarItems: sideBarItems,
     };
   },
-});
+  computed: {
+    routeName() {
+      return this.$route.name;
+    },
+  },
+  methods: {
+    navigateTo({ routeName }) {
+      if (routeName === "design") {
+        this.$router.push({
+          name: "design",
+        });
+        return;
+      }
+      this.$router.push({
+        name: "loan",
+      });
+    },
+  },
+};
 </script>

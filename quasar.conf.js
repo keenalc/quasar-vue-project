@@ -10,7 +10,8 @@
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers');
 
-module.exports = configure(function (ctx) {
+
+module.exports = function (ctx) {
   return {
     // https://v2.quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -22,6 +23,7 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli/boot-files
     boot: [
+      'axios'
     ],
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -93,7 +95,9 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Notify'
+      ]
     },
 
     // animations: 'all', // --- includes all animations
@@ -101,28 +105,28 @@ module.exports = configure(function (ctx) {
     animations: [],
 
     // https://v2.quasar.dev/quasar-cli/developing-ssr/configuring-ssr
-    ssr: {
-      pwa: false,
+    // ssr: {
+    //   pwa: false,
 
-      // manualStoreHydration: true,
-      // manualPostHydrationTrigger: true,
+    //   // manualStoreHydration: true,
+    //   // manualPostHydrationTrigger: true,
 
-      prodPort: 3000, // The default port that the production server should use
-                      // (gets superseded if process.env.PORT is specified at runtime)
+    //   prodPort: 3000, // The default port that the production server should use
+    //                   // (gets superseded if process.env.PORT is specified at runtime)
 
-      maxAge: 1000 * 60 * 60 * 24 * 30,
-        // Tell browser when a file from the server should expire from cache (in ms)
+    //   maxAge: 1000 * 60 * 60 * 24 * 30,
+    //     // Tell browser when a file from the server should expire from cache (in ms)
 
-      chainWebpackWebserver (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
-      },
+    //   chainWebpackWebserver (chain) {
+    //     chain.plugin('eslint-webpack-plugin')
+    //       .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
+    //   },
 
-      middlewares: [
-        ctx.prod ? 'compression' : '',
-        'render' // keep this as last one
-      ]
-    },
+    //   middlewares: [
+    //     ctx.prod ? 'compression' : '',
+    //     'render' // keep this as last one
+    //   ]
+    // },
 
     // https://v2.quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
@@ -220,4 +224,4 @@ module.exports = configure(function (ctx) {
       },
     }
   }
-});
+};

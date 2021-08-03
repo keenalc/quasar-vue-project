@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Home",
+    "icon": "school",
+    "routeName": "loan"
+  },
+  {
+    "title": "Cards",
+    "icon": "credit_card",
+    "routeName": "design"
+  },
+  {
+    "title": "Payment",
+    "icon": "sync_alt"
+  },
+  {
+    "title": "Credit",
+    "icon": "north"
+  },
+  {
+    "title": "Settings",
+    "icon": "person"
+  }
+]

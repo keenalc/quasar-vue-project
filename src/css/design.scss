@@ -1,0 +1,145 @@
+@import "./quasar.variables.scss";
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bold {
+  font-weight: bold;
+}
+.page-layout {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.available-balance {
+  font-size: 0.8em;
+  margin-top: 15px;
+  padding-bottom: 0px;
+}
+
+.new-card-btn {
+  margin-left: auto;
+  font-size: 0.8em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.my-card {
+  background: $positive;
+  height: 249px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+  width: 92%;
+  border-radius: 15px;
+}
+
+.slid1 {
+  border-radius: 25px;
+  background: $positive;
+  width: 16pt;
+  height: 8pt;
+  opacity: 100%;
+  margin-left: 10px;
+}
+.slid2 {
+  height: 8pt;
+  width: 8pt;
+  background: $positive;
+  border-radius: 50%;
+  opacity: 20%;
+  margin-left: 10px;
+}
+.show-card-no {
+  color: $positive;
+  margin-left: auto;
+  font-size: 0.8em;
+  padding-right: 3%;
+  @extend .center;
+}
+.slide {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+.card-content {
+  .name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .number {
+    background: white;
+    &::before {
+      content: ".... .... .... ....";
+      position: absolute;
+      font-size: 5em;
+      top: 5%;
+      @media only screen and (max-width: 600px) {
+        font-size: 3em;
+        top: 18%;
+      }
+    }
+  }
+  .other-details {
+    font-size: 0.9em;
+    padding-top: 20%;
+  }
+
+  .visa {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-top: 1em;
+  }
+}
+.list-icon {
+  background-color: #e5e8eb;
+  padding: 10px;
+}
+.trans-date {
+  font-size: 0.6em;
+  color: #aaaaaa;
+}
+.trans-action {
+  font-size: 0.8em;
+  color: $primary;
+}
+.row-action {
+  background: #e5e8eb;
+}
+
+.bottom {
+  background: #e5e8eb;
+}
+
+.my-card-2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  width: max-content;
+  margin-left: 10%;
+  background: #edf3ff;
+
+  .caption {
+    margin-right: 0.2em;
+    margin-left: 0.5em;
+    text-align: center;
+  }
+  .caption-text {
+    max-width: 64px;
+    color: $primary;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-left: 0%;
+    font-size: 0.8em;
+    .caption {
+      margin-right: 0.2em;
+      margin-left: 0.2em;
+    }
+    .caption-text {
+      max-width: 50px;
+    }
+  }
+}
