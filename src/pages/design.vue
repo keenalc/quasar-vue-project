@@ -39,7 +39,7 @@
     </q-tabs>
 
     <q-tab-panels v-model="tab" animated>
-      <q-tab-panel name="debit" style="overflow: hidden">
+      <q-tab-panel name="debit" class="tab-panel" style="overflow: hidden">
         <div class="row">
           <div class="col-md-7 col-xs-12">
             <q-carousel
@@ -119,7 +119,7 @@
             </q-card>
           </div>
           <div class="col-md-4 col-xs-12" style="margin-left: auto">
-            <q-list class="q-mt-lg q-mr-md">
+            <q-list class="side-list">
               <q-expansion-item
                 label="Card Details"
                 header-class="bg-blue-grey-1 text-primary"
