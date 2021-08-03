@@ -11,10 +11,6 @@ npm install
 ```bash
 quasar dev
 ```
-
-### Lint the files
-```bash
-npm run lint
 ```
 
 ### Build the app for production
@@ -36,4 +32,4 @@ The 1 challenge is connected with node.js for backend api's, if the API's doesn'
     ```bash
     cd server && node index.js
     ```
-2. Update the api in axio.js
+2. Update the api in axios.js
